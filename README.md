@@ -1,5 +1,5 @@
 # My-Small-Projects
-Feel free to use my code and take inspiration from them.
+Feel free to look around, use my code or take inspiration from them.
 
 These projects are simple JS only.
 
