@@ -1,0 +1,148 @@
+/*Set the layout*/
+.gallery {
+    display: grid;
+    justify-content: center;
+    margin-top: 10px;
+    border-bottom: 5px #000 solid;
+    grid-template-columns: 355px 350px 365px;
+    grid-template-areas:
+    "vertical    a    b"
+    "vertical    c    d"
+    "e  f   g"
+    "h  h   h";
+    padding: 10px;
+}
+
+/*For each div*/
+.gallery-item {
+    display: flex;
+    flex-shrink: 0;
+    margin-left: 10px; 
+    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
+    max-height: fit-content;
+    max-width: fit-content;
+}
+
+/*All pictures*/
+.gallery-item img {
+    height: 250px;
+    width: 350px;
+}
+
+.gallery-item img:hover {
+    opacity: 0.5;
+}
+
+.gallery-item h6 {
+    position: absolute;
+    text-transform: capitalize;
+    color: #fff;
+    font-size: 2rem;
+    visibility: hidden;
+}
+
+.gallery-item:hover h6 {
+    visibility: visible;
+    opacity: 1;
+    cursor: pointer;
+}
+
+/*Takes 2 vertical spaces*/
+.gallery-item:first-of-type {
+   grid-area: vertical;
+}
+/*The custom style for it*/
+.gallery-item:first-of-type img {
+    max-width: auto;
+    height: 500px;
+ }
+
+ /*Takes up 3 horizontal spaces*/
+.gallery-item:last-of-type {
+    grid-area: h;
+    background-color: unset;
+    max-width: fit-content;
+}
+/*The custom style for it*/
+.gallery-item:last-of-type img {
+    background-color: none;
+    width: 100%;
+    height: auto;
+}
+
+/*Custom hover because of complications*/
+.gallery-item:hover {
+    background-color: #000;
+}
+
+/*Hover magic*/
+.gallery-item img:hover {
+    opacity: 0.5;
+    cursor: pointer;
+    background-color: #000;
+}
+
+/*Window for image*/
+.window {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.705);
+}
+
+.window img{
+    max-width: 80vw;
+    max-height: 80vh;
+}
+
+/*Buttons themselves*/
+.button {
+    position: absolute;
+    cursor: pointer;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 10px;
+    margin: 10px;
+    width: 50px;
+    height: 50px;
+    line-height: 30px;
+    text-align: center;
+    border-radius: 80%;
+    background-color: rgb(126, 126, 126);
+    z-index: 100;
+    color: #fff;
+}
+
+.esc {
+    top: 0;
+    right: 0;
+}
+
+.esc:hover {
+    transition: ease-in 0.3s;
+    background-color: rgb(228, 28, 28);
+}
+
+.prev {
+    top: auto;
+}
+
+.prev:hover {
+    background-color: rgb(221, 135, 36);
+}
+
+.next {
+    top: auto;
+}
+
+.next:hover {
+    background-color: rgb(36, 206, 64);
+}
+

@@ -1,0 +1,28 @@
+body {
+    background-image: url(./Background.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: #1b1e23;
+}
+
+/*Digital Clock*/
+
+#button {
+    align-self: center;
+    padding: 30px;
+    margin: 50px;
+}
+
+#showtime {
+    border: 1px #fff solid;
+    background-color: rgb(11, 0, 110);
+    color: rgb(255, 0, 0);
+    font-family: 'Orbitron';
+    width: 80vw;
+    height: 80px;
+    font-size: 52px;
+    text-align: center;
+    margin: 0 auto;
+    display: none;
+}
