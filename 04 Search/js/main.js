@@ -21,13 +21,13 @@ function displayItem(resource) {
         images.src = element["picture"];
         textName.classList.add("titles");
         textPrice.classList.add("prices");
-        itemWindow.classList.add("items")
+        itemWindow.classList.add("items");
 
         itemWindow.addEventListener('click', function() {
-            window.open(element["picture"], '_target')
+            window.open(element["picture"], '_target');
         })
 
-        itemWindow.appendChild(textPrice)
+        itemWindow.appendChild(textPrice);
         itemWindow.appendChild(textName);
         itemWindow.appendChild(images);
         getWindow.appendChild(itemWindow);
@@ -41,7 +41,7 @@ function searchItem(products) {
     let result = [];
     for(let i = 0; i < gallery.length; i++) {
         if (gallery[i]["name"].toLowerCase().includes(search)){
-            result.push(gallery[i])
+            result.push(gallery[i]);
         }
     }
     displayItem(result);
@@ -57,31 +57,31 @@ form.addEventListener('submit', (e) => {
 function highLow(sort) {
     clearList();
     if (sort === "lowToHigh") {
-        gallery.sort((a, b) => a["price"] > b["price"] ? 1 : -1)
-        displayItem(gallery)
+        gallery.sort((a, b) => a["price"] > b["price"] ? 1 : -1);
+        displayItem(gallery);
     } else {
-        gallery.sort((a, b) => a["price"] < b["price"] ? 1 : -1)
-        displayItem(gallery)
+        gallery.sort((a, b) => a["price"] < b["price"] ? 1 : -1);
+        displayItem(gallery);
     }
 }
 
 // Event listener for highest to lowest
 sortPrice.addEventListener('change', (e) => {
     e.preventDefault();
-    highLow(sortPrice.value)
+    highLow(sortPrice.value);
 })
 
 // Fetch json file
 fetch("./js/server.json")
     .then(response => {
-        return response.json()
+        return response.json();
     })
     .then(data => {
         displayItem(data);
         gallery = data;
-        highLow("highToLow")
+        highLow("highToLow");
     })
-    .catch((err) => console.log(err))
+    .catch((err) => console.log(err));
 
 function clearList() {
     document.querySelectorAll(".items").forEach(theItems => theItems.remove());
