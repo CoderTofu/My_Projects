@@ -45,7 +45,7 @@ function searchItem(products) {
         }
     }
     displayItem(result);
-    result = [];
+    // this guy is optional -> result = [];
 }
 
 // Event listener for search
