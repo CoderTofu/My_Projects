@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Room</title>
+</head>
+<link rel="stylesheet" href="./css/reset.css">
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/home.css">
+<link rel="stylesheet" href="./css/mole.css">
+<body>
+
+    <nav class="navbar">
+        <ul class="array-items">
+            <li class="items" onclick="goHome()">
+                <a href="#" class="nav-link">
+                    <img src="./images/nav-icons/home.png" alt="home" class="logo">
+                    <h6 class="titles">Home</h6>
+                </a>
+            </li>
+            <li class="items" onclick="getMole()">
+                <a href="#" class="nav-link">
+                    <img src="./images/nav-icons/mole.png" alt="mole" class="logo">
+                    <h6 class="titles">Whack-A-Mole</h6>
+                </a>
+            </li>
+            <li class="items" onclick="getSnake()">
+                <a href="#" class="nav-link">
+                    <img src="./images/nav-icons/snake.png" alt="snake" class="logo">
+                    <h6 class="titles">Snake</h6>
+                </a>
+            </li>
+            <li class="items" onclick="getTicTacToe()">
+                <a href="#" class="nav-link">
+                    <img src="./images/nav-icons/cross.png" alt="tictactoe" class="logo">
+                    <h6 class="titles">Tic Tac Toe</h6>
+                </a>
+            </li>
+            <li class="items" onclick="seeHistory()">
+                <a href="#" class="nav-link">
+                    <img src="./images/nav-icons/book.png" alt="history" class="logo">
+                    <h6 class="titles">History</h6>
+                </a>
+            </li>
+            <li class="items display" onclick="themeAdjust()">
+                <a href="#" class="nav-link">
+                    <img src="./images/nav-icons/sun.png" alt="sun" class="logo">
+                    <h6 class="titles">Display</h6>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="content default">
+        <div class="banner">
+            <h1 class="highlight">Welcome to my Game Room!</h1>
+        </div>
+        <h3 class="message">You can select a game or look at your game history through the menu on the left or below depending on your screen size.</h3>
+    </main>
+       
+</body>
+<script src="./js/home.js"></script>
+<script src="./js/mole.js"></script>
+<script src="./js/snake.js"></script>
+<script src="./js/tictac.js"></script>
+<script src="./js/history.js"></script>
+<script src="./js/theme.js"></script>
+</html>

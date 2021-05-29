@@ -1,0 +1,4 @@
+
+function getSnake() {
+    content.innerHTML = "";
+}

@@ -1,0 +1,127 @@
+
+/* scrollbar */
+::-webkit-scrollbar {
+    display: none;
+  }
+
+:root {
+    font-size: 16px;
+    --transition-speed-nav: ease-in-out 0.1s;
+
+    /* Hover effect*/
+    --items-hover: rgba(174, 0, 255, 0.466);
+
+    /* Default or the light mode */
+    --content-color-default: rgb(255, 210, 167);
+    --nav-color-default: rgb(88, 88, 88);
+    --text-color-default: rgb(255, 255, 255);
+    
+    /* Dark mode */
+    --content-color-dark: rgb(31, 31, 31);
+    --nav-color-dark: rgb(25, 35, 100);
+    --text-color-dark: rgb(233, 233, 233);
+
+    /* Rose */
+    --content-color-rose: rgb(226, 183, 117);
+    --nav-color-rose: #c57490;
+    --text-color-rose: rgb(233, 233, 233);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color:var(--content-color-default);
+}
+
+.navbar {
+    position: fixed;
+    background: var(--nav-color-default);
+}
+
+.array-items {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: center;
+    height: 98%;
+}
+
+.items {
+    width: 100%;
+    border-radius: 20%;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    text-decoration: none;
+    overflow: hidden;
+    color: #000;
+}
+
+.logo {
+    padding: 0 15px 5px 15px;
+    max-width: 3rem;
+    filter: invert();
+}
+
+.titles {
+    display: none;
+    margin-left: 1rem;
+    color: var(--text-color-default);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* Large Screen */
+@media only screen and (min-width: 600px) {
+    .navbar {
+        width: 5rem;
+        height: 100%;
+    }
+    
+    .content {
+        justify-self: center;
+    }
+
+    .items:last-child {
+        margin-top: auto;
+    }
+    .navbar:hover {
+        width: 16rem;
+        transition: var(--transition-speed-nav);
+    }
+
+    .navbar:hover .titles {
+        display: block;
+    }
+
+    .items:hover {
+        background-color: var(--items-hover);
+        transition: var(--transition-speed-nav);
+    }
+}
+
+/* Small screen */
+@media only screen and (max-width: 600px) {
+    .navbar {
+        width: 100vw;
+        height: 5rem;
+        bottom: 0;
+        display: flex;
+        flex-direction: row;
+    }
+    .array-items {
+        flex-direction: row;
+    }
+    .items {
+        margin-bottom: 10px;
+        margin-left: 30px;
+    }
+}

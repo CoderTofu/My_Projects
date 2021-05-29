@@ -1,0 +1,4 @@
+
+function seeHistory() {
+    content.innerHTML = "";
+}
