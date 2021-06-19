@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+</head>
+<link rel="stylesheet" href="reset.css">
+<link rel="stylesheet" href="style.css">
+
+<body>
+
+    <div id="topSide">
+        <h1>Rock Paper Scissors</h1>
+    </div>
+
+    <header>
+        <div>
+            <h3>Wins:</h3> 
+            <p id="win">0</p>
+        </div>
+        <div>
+            <h3>Draws:</h3> 
+            <p id="draw">0</p>
+        </div>
+        <div>
+            <h3>Loses:</h3>
+            <p id="loss">0</p>
+        </div>
+    </header>
+
+    <div class="moves">
+
+        <img src="./img/Rock.png" 
+        alt="rock" class="rock" onclick="gameStart('rock')">
+
+        <img src="./img/Paper.png" 
+        alt="paper" class="paper" onclick="gameStart('paper')">
+
+        <img src="./img/Scissors.png" 
+        alt="scissors" class="scissors" onclick="gameStart('scissors')">
+
+    </div>
+
+    <footer>
+        <h3>Times Used:</h3>
+
+        <div>
+            <h4>Rock: </h4> <p class="rock-times">0</p>
+        </div>
+
+        <div>
+            <h4>Paper: </h4> <p class="paper-times">0</p>
+        </div>
+
+        <div>
+        <h4>Scissors: </h4> <p class="scissor-times">0</p>
+        </div>
+    </footer>
+
+    <script src="gamefile.js"></script>
+</body>
+
+</html>
