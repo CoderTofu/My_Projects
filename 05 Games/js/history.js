@@ -18,7 +18,7 @@ function seeHistory() {
     historyMenu.classList.add("history-menu");
     historyMenu.innerHTML = `
     <div class="icons mole-historyIcon">
-        <img src="../images/nav-icons/mole.png">
+        <img src="../images/nav-icons/mole.png" alt="">
     </div>
     <div class="icons snake-historyIcon">
         <img src="../images/nav-icons/snake.png">
@@ -200,107 +200,3 @@ function deleteSave(num, db) {
     localStorage.setItem(dataName, JSON.stringify(parsedData));
     clickHistory(pass)
 }
-
-// // Snake history
-// let snakeContent = document.createElement("div");
-// snakeContent.classList.add("snake-history");
-// historyContent.appendChild(snakeContent);
-// snakeContent.innerHTML = `
-//     <h3>Snake</h3>
-// `
-
-// let snakeHistory = localStorage.getItem("snakeHistory");
-// let parseSnakeHistory = JSON.parse(snakeHistory);
-// if (parseSnakeHistory !== null || parseSnakeHistory.length > 0) {
-//     let createdTable = document.createElement("table");
-//     createdTable.classList.add("snake-table");
-//     createdTable.innerHTML = `
-//     <tr>
-//         <th>You have no saves.</th>
-//     </tr>
-//     `
-
-//     for (let i = 0; i < parseSnakeHistory.length; i++) {
-//         createdTable.innerHTML = `
-//         <tr>
-//             <th>Time & Date</th>
-//             <th>Score</th>
-//             <th>Time Played</th>
-//             <th>Edit</th>
-//         </tr>
-//         `
-//         let createdRow = document.createElement("tr");
-//         createdRow.innerHTML = `
-//         <td>${parseSnakeHistory[i].date}</td>
-//         <td>${parseSnakeHistory[i].score}</td>
-//         <td>${parseSnakeHistory[i].time_played}</td>
-//         <td><button onclick="deleteSave(${i}, 1)">Delete</button></td>
-//         `
-//         createdTable.appendChild(createdRow)
-//     }
-//     snakeContent.appendChild(createdTable)
-// } else {
-//     let createdTable = document.createElement("table");
-//     createdTable.classList.add("tic-table");
-//     createdTable.innerHTML = `
-//     <tr>
-//         <th>You have no saves.</th>
-//     </tr>
-//     `
-//     snakeContent.appendChild(createdTable)
-// }
-
-// // Tic-Tac-Toe history
-// let ticContent = document.createElement("div");
-// ticContent.classList.add("tic-history");
-// historyContent.appendChild(ticContent);
-// ticContent.innerHTML = `
-//     <h3>Tic-Tac-Toe</h3>
-// `
-
-// let ticHistory = localStorage.getItem("ticHistory");
-// if (ticHistory !== null) {
-//     let parseTicHistory = JSON.parse(ticHistory);
-//     let createdTable = document.createElement("table");
-//     createdTable.classList.add("tic-table");
-//     createdTable.innerHTML = `
-//     <tr>
-//         <th>You have no saves.</th>
-//     </tr>
-//     `
-
-//     for (let i = 0; i < parseTicHistory.length; i++) {
-//         createdTable.innerHTML = `
-//     <tr>
-//         <th>Time & Date</th>
-//         <th>Type</th>
-//         <th>Rounds</th>
-//         <th>Player 1</th>
-//         <th>Player 2</th>
-//         <th>Draws</th>
-//         <th>Edit</th>
-//     </tr>
-//     `
-//         let createdRow = document.createElement("tr");
-//         createdRow.innerHTML = `
-//         <td>${parseTicHistory[i].date}</td>
-//         <td>${parseTicHistory[i].type}</td>
-//         <td>${parseTicHistory[i].rounds}</td>
-//         <td>${parseTicHistory[i]["player 1"]}</td>
-//         <td>${parseTicHistory[i]["player 2"]}</td>
-//         <td>${parseTicHistory[i].draws}</td>
-//         <td><button onclick="deleteSave(${i}, 2)">Delete</button></td>
-//         `
-//         createdTable.appendChild(createdRow);
-//     }
-//     ticContent.appendChild(createdTable)
-// } else {
-//     let createdTable = document.createElement("table");
-//     createdTable.classList.add("tic-table");
-//     createdTable.innerHTML = `
-//     <tr>
-//         <th>You have no saves.</th>
-//     </tr>
-//     `
-//     ticContent.appendChild(createdTable)
-// }
