@@ -18,13 +18,13 @@ function seeHistory() {
     historyMenu.classList.add("history-menu");
     historyMenu.innerHTML = `
     <div class="icons mole-historyIcon">
-        <img src="../images/nav-icons/mole.png" alt="">
+        <img src="../images/nav-icons/mole.png">
     </div>
     <div class="icons snake-historyIcon">
         <img src="../images/nav-icons/snake.png">
     </div>
     <div class="icons cross-historyIcon">
-    <img src="../images/nav-icons/cross.png">
+        <img src="../images/nav-icons/cross.png">
     </div>
     `
     historyContent.appendChild(historyMenu);
