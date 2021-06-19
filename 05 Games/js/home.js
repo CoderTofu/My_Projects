@@ -1,6 +1,10 @@
-const content = document.querySelector(".content");
 
+// This function is so we can go back to the home page
 function goHome() {
+
+    clearInterval(counter);
+    clearTimeout(starter);
+
     content.innerHTML = "";
     // Create elements
     const banner = document.createElement("div");
@@ -17,4 +21,6 @@ function goHome() {
     banner.appendChild(highlight);
     content.appendChild(banner);
     content.appendChild(message);
+
+    themeFillHome()
 }

@@ -1,16 +1,28 @@
 :root {
     font-size: 16px;
-    --banner-color: rgb(139, 0, 204);
+    --transition-speed: 500ms ease;   
+
+    /* Default */
+    --banner-color: #8b00cc;
+    --border-color: #000;
     --highlight-color: rgb(255, 255, 255);
     --message-color: rgb(0, 0, 0);
-    --border-color: #000;
-    --transition-speed: 500ms ease;   
+
+    /* Dark */
+    --banner-color-dark: #b59e55;
+    --border-color-dark: #9c9c9c;
+    --highlight-color-dark: #000;
+    --message-color-dark: #fff;
+    
+    /* Rose */
+    --banner-color-rose: #e49b9b;
+    --border-color-rose: #000;
+    --highlight-color-rose: #000;
+    --message-color-rose: #fff;
 }
 
 .banner {
-    background-color: var(--banner-color);
-    width: 80vw;
-    margin: 10px;
+    max-width: 80vw;
     height: 350px;
     display: flex;
     align-items: center;
@@ -26,7 +38,7 @@
     font-size: 5rem;
     padding: 10px;
     cursor:default;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
     transition: var(--transition-speed);
 }
 
@@ -43,9 +55,10 @@
 }
 
 /* Small screen */
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
     .banner {
         height: 300px;
+        margin-left: 0;
     }
 
     .highlight {
@@ -53,13 +66,8 @@
     }
 
     .message {
-        margin: 0;
-        margin-left: 5rem;
+        margin-left: 0rem;
         font-size: 1rem;
         width: 80vw;
-    }
-
-    .content {
-        margin: none;
     }
 }

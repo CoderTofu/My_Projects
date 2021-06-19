@@ -1,0 +1,215 @@
+
+:root {
+    font-size: 16px;
+    --transition-speed: 200ms ease-in;
+
+    /* Default */
+    --tic-banner-default: #a12bd8;
+    --tic-text-default: #000;
+    --tic-button-default: #cb8ddf;
+    --tic-bannerText-default: #fffffff3;
+    --tic-bannerBorder-default: #000;
+    --tic-areaBorder-default: #000;
+    --tic-areaBackground-default: #c4c4c4;
+
+    /* Dark */
+    --tic-banner-dark: #b59e55;
+    --tic-text-dark: #ffffff;
+    --tic-button-dark: #c23a5c;
+    --tic-bannerText-dark: #000000f3;
+    --tic-bannerBorder-dark: #9c9c9c;
+    --tic-areaBorder-dark: #bdbdbd;
+    --tic-areaBackground-dark: #0d1f91;
+
+    /* Rose */
+    --tic-banner-rose: #e49b9b;
+    --tic-text-rose: #242424;
+    --tic-button-rose: #c0900b;
+    --tic-bannerText-rose: #000;
+    --tic-bannerBorder-rose: #000;
+    --tic-areaBorder-rose: rgb(9, 38, 136);
+    --tic-areaBackground-rose: #da3871;
+}
+
+* {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.tikTakToe-container {
+    margin-left: 5rem;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Pre-game */
+    .start-tic {
+        max-width: 80%;
+        height: 85vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .banner-tic {
+        font-size: 4rem;
+        position: absolute;
+        top: 3rem;
+        padding: 2rem;
+        background-color: var(--tic-banner-default);
+        color: var(--tic-bannerText-default);
+        max-width: 80vw;
+        min-height: 8rem;
+        border: 5px solid var(--tic-bannerBorder-default);
+        text-align: center;
+    }
+
+    .message-tic {
+        margin-top: 8rem;
+        font-size: 2rem;
+        width: 500px;
+        color: var(--tic-text-default);
+    }
+
+    .type-tic {
+        margin-top: 2rem;
+        margin-bottom: 5rem;
+    }
+
+    .type-tic button {
+        width: 120px;
+        height: 60px;
+        font-size: 1.5rem;
+        margin-left: 10px;
+        background-color: var(--tic-button-default);
+    }
+
+    .type-tic button:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+    .tic-start {
+        position: absolute;
+        bottom: 7rem;
+    }
+
+/* In-game */
+    .tic-area {
+        display: flex;
+        flex-wrap: wrap;
+        color: var(--tic-text-default);
+    }
+
+    .three {
+        width: 387px;
+        height: 387px;
+        border: 2px solid var(--tic-areaBorder-default);
+    }
+
+    .three div{
+        border: 2px solid var(--tic-areaBorder-default);
+        width: 125px;
+        height: 125px;
+        font-size: 5rem;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--tic-areaBackground-default);
+    }
+
+    .five {
+        width: 395px;
+        height: 395px;
+        border: 2px solid var(--tic-areaBorder-default);
+    }
+
+    .five div{
+        border: 2px solid var(--tic-areaBorder-default);
+        width: 75px;
+        height: 75px;
+        font-size: 3rem;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--tic-areaBackground-default);
+    }
+
+    .tic-scores {
+        display: flex;
+        width: 120%;
+        color: var(--tic-text-default);
+        font-family: Arial, Helvetica, sans-serif;
+        border-bottom: 3px solid var(--tic-areaBackground-default);
+        margin-bottom: 10px;
+    }
+
+    .tic-scores h6{
+        flex: 1;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .tic-reset {
+        margin-top: 15px;
+        padding: 1rem;
+        font-size: 1rem;
+        margin-right: 1rem;
+        font-weight: bold;
+        background-color: var(--tic-button-default);
+    }
+
+    .tic-reset:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+    .tic-session {
+        margin-top: 15px;
+        padding: 1rem;
+        font-size: 1rem;
+        font-weight: bold;
+        background-color: var(--tic-button-default);
+    }
+
+    .tic-session:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+/* For small screens */
+@media only screen and (max-width: 600px) {
+    .tikTakToe-container {
+        margin-left: 0;
+        margin-bottom: 5rem;
+    }
+
+    .banner-tic {
+        font-size: 3rem;
+        position: absolute;
+        height: 100px;
+        vertical-align: middle;
+        top: 1rem;
+        padding: 2rem;
+        background-color: var(--tic-banner-default);
+        color: var(--tic-bannerText-default);
+        max-width: 70vw;
+        text-align: center;
+    }
+
+    .message-tic {
+        margin-top: 8rem;
+    }
+
+    .tic-start {
+        bottom: 7rem;
+    }
+
+}
+

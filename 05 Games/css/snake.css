@@ -1,0 +1,156 @@
+/* Here lies the snake variables */
+:root {
+    font-size: 16px;
+    --transtion-speed: 200ms ease;
+
+    /* Default */
+    --border-banner-default: #000;
+    --snake-banner-default: #a12bd8;
+    --snake-bannerFont-default: #ffffff;
+    --snake-text-default: #000;
+    --snake-cageBorder-default: #a12bd8;
+    --grids-background-default: #a6d3e6;
+
+    --mole-text-default: #000;
+
+    /* Dark */
+    --border-banner-dark: #9c9c9c;
+    --snake-banner-dark: #b59e55;
+    --snake-bannerFont-dark: #000000;
+    --snake-text-dark: #ffffff;
+    --snake-cageBorder-dark: #b59e55;
+    --grids-background-dark: #f0d7af;
+
+    --mole-text-dark: #e6e6e6;
+
+    /* Rose */
+    --border-banner-rose: #000;
+    --snake-banner-rose: #e49b9b;
+    --snake-bannerFont-rose: #000000;
+    --snake-text-rose: #000;
+    --snake-cageBorder-rose: #e49b9b;
+    --grids-background-rose: #b9eba2;
+
+    --mole-bannerText-rose: #000000;
+}
+
+/* Pre-snake Game */
+
+    .snake-container {
+        width: 90vw;
+        height: 95vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-left: 5rem;
+        transition: var(--transtion-speed);
+    }
+
+    .snake-banner {
+        top: 7rem;
+        text-align: center;
+        background: var(--snake-banner-default);
+        font-family: 'Times New Roman', Times, serif;
+        border: 5px solid var(--border-banner-default);
+        position: absolute;
+        max-width: 75vw;
+        padding: 3rem;
+        color: var(--snake-bannerFont-default);
+        transition: var(--transtion-speed);
+    }
+
+    .snake-banner h4 {
+        font-size: 5rem;
+    }
+
+    .snake-message {
+        margin-top: 1rem;
+        bottom: 15rem;
+        font-family: 'Times New Roman', Times, serif;
+        position: absolute;
+    }
+
+    .snake-message p {
+        font-size: 2rem;
+        color: var(--snake-text-default);
+        transition: var(--transtion-speed);
+    }
+
+    .snake-start, .snake-cancel {
+        bottom: 7rem;
+        position: absolute;
+        transition: var(--transtion-speed);
+    }
+
+    /* Countdown is in mole.css */
+
+/* During the Snake Game */
+    .snake-cage {
+        width: 500px;
+        height: 500px;
+        border: 3px solid var(--snake-cageBorder-default);
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        transition: var(--transtion-speed);
+    }
+
+    .grid {
+        height: 20px;
+        width: 20px;
+        background-color: var(--grids-background-default);
+    }
+
+    .stat-snake {
+        display: flex;
+        width: 100%;
+        font-size: 2rem;
+        color: var(--snake-text-default);
+        transition: var(--transtion-speed);
+    }
+
+    .stat-snake div{
+        flex-grow: 1;
+        text-align: center;
+        margin-bottom: 1rem;
+        transition: var(--transtion-speed);
+    }
+
+/* All endgame states are in mole.css */
+
+/* For small screens */
+    @media only screen and (max-width: 600px) {
+        .snake-container {
+            margin-left: 0;
+            margin-bottom: 5rem;
+        }
+        .snake-banner {
+            width: 90vw;
+            height: fit-content;
+        }
+
+        .snake-message p {
+            font-size: 1.5rem;
+        }
+
+        .snake-banner h4 {
+            font-size: 3rem;
+        }
+
+        .stat-snake {
+            display: flex;
+            width: 100%;
+            font-size: 1.8rem;
+        }
+
+        .snake-cage {
+            width: 375px;
+            height: 375px;
+        }
+    
+        .grid {
+            height: 15px;
+            width: 15px;
+        }
+    }

@@ -1,10 +1,278 @@
+:root {
+    font-size: 16px;
+    --transition-speed: 200ms ease-in;
 
-.mole-tunings {
-    display: flex;
+    /* Default */
+    --mole-banner-default: #a12bd8;
+    --mole-confirm-default: #37e220;
+    --mole-text-default: #000;
+    --mole-button-default: #cb8ddf;
+    --mole-hole-default: #000000dc;
+    --mole-bannerText-default: #fffffff3;
+    --mole-bannerBorder-default: #000;
+
+    /* Dark */
+    --mole-banner-dark: #b59e55;
+    --mole-confirm-dark: #2abb17dc;
+    --mole-text-dark: #e6e6e6;
+    --mole-button-dark: #c23a5c;
+    --mole-hole-dark: #ffffff;
+    --mole-bannerText-dark: #000000;
+    --mole-bannerBorder-dark: #9c9c9c;
+
+    /* Rose */
+    --mole-banner-rose: #e49b9b;
+    --mole-confirm-rose: #2bd815dc;
+    --mole-text-rose: #242424;
+    --mole-button-rose: #c0900b;
+    --mole-hole-rose: #8b0303dc;
+    --mole-bannerText-rose: #000000;
+    --mole-bannerBorder-rose: #000;
 }
 
-.mole-hole {
-    width: 50px;
-    height: 50px;
-    background-color: #000;
+.mole-container {
+    margin-left: 5rem;
+    max-width: 80vw;
+    width: 80vw;
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ /* Home Mole */
+    .mole-banner {
+        font-family: 'Times New Roman', Times, serif;
+        background-color: var(--mole-banner-default);
+        padding: 1.5rem;
+        margin-top: 15px;
+        position: absolute;
+        top: 0;
+        max-width: 80vw;
+        text-align: center;
+        font-size: 3rem;
+        border: 5px #000 solid;
+        transition: var(--transition-speed);
+    }
+
+    .mole-difficulty, .mole-timeLimit {
+        width: 100%;
+        font-size: 2rem;
+        text-align: center;
+        color: var(--mole-text-default);
+        transition: var(--transition-speed);
+    }
+
+    .mole-confirm {
+        position: absolute;
+        bottom: 6rem;
+        transition: var(--transition-speed);
+    }
+
+    .mole-cancel {
+        position: absolute;
+        bottom: 6rem;
+    }
+
+    .mole-button {
+        background-color: var(--mole-button-default);
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 1rem;
+        font-family: monospace;
+        margin: 5px;
+    }
+
+    .mole-button:hover {
+        cursor: pointer;
+        opacity: 0.7;
+        transition: var(--transition-speed);
+    }
+
+    .confirm{
+        bottom: 5px;
+        font-size: 18px;
+        padding: 15px 32px;
+        background-color: var(--mole-confirm-default);
+    }
+
+    .cancel {
+        color: #fff;
+        font-weight: bold;
+        font-size: 18px;
+        bottom: 5px;
+        padding: 15px 32px;
+        background-color: #df0000;
+    }
+
+    .confirm:hover, .cancel:hover {
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+    .countdown {
+        height: 0vh;
+        position: fixed;
+        bottom: 5rem;
+        right: 1rem;
+        padding: 2rem;
+        font-size: 5rem;
+    }
+
+/* In-game Mole */
+    .mole-hole-container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: center;
+        max-width: 80vw;
+    }
+
+    .mole-hole {
+        width: 60px;
+        height: 60px;
+        background-color: var(--mole-hole-default);
+        margin: 5px;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mole-hole img {
+        display: none;
+        width: 70px;
+        height: 70px;
+    }
+
+    .mole-time-div {
+        top: 5rem;
+        color: var(--mole-text-default);
+        position: absolute;
+    }
+
+    .mole-score-div {
+        bottom: 5rem;
+        position: absolute;
+        color: var(--mole-text-default);
+    }
+
+    .mole-time-div {
+        top: 5rem;
+        position: absolute;
+    }
+
+    .mole-score-div {
+        bottom: 5rem;
+        position: absolute;
+    }
+
+    .mole-time-div h2, .mole-score-div h2 {
+        font-size: 1.5rem;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+
+/* Endgame */
+    .endgame {
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100%;
+        transition: var(--transition-speed);
+    }
+
+    .endgame-main {
+        text-align: center;
+        padding: 2rem;
+        color: var(--mole-bannerText-default);
+        background-color: var(--mole-banner-default);
+        border: 5px solid var(--mole-bannerBorder-default);
+    }
+
+    .endgame-main h4 {
+        font-size: 1.5rem;
+        margin-top: 10px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .button-endgame {
+        margin-top: 10px;
+    }
+
+    .button-endgame button{
+        padding: 1rem;
+        width: 6rem;
+        margin-right: 5px;
+        background-color: rgb(238, 234, 200);
+    }
+
+    .button-endgame button:hover{
+        opacity: 0.7;
+        cursor: pointer;
+    }
+
+/* For small screens */
+@media only screen and (max-width: 600px) {
+
+    /* For mole home */
+    .mole-container {
+        margin-left: 0;
+    }
+
+    .mole-hole-container {
+        margin-bottom: 2rem;
+    }
+    
+    .mole-banner {
+        font-size: 2rem;
+    }
+
+    .countdown {
+        bottom: 10rem;
+    }
+    
+    .button {
+        padding: 1rem;
+        height: fit-content;
+        width: 5rem;
+        font-size: 10px;
+        cursor: pointer;
+    }
+
+    .mole-difficulty {
+        text-align: center;
+        font-size: 1.5rem;
+    }
+
+    .mole-timeLimit {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .mole-time-div {
+        top: none;
+        position: absolute;
+    }
+
+    .mole-score-div {
+        bottom: 7rem;
+        position: absolute;
+    }
+
+    /* For mole end */
+    .endgame {
+        margin-bottom: 5rem;
+    }
+
+    .mole-countdown {
+        height: 2rem;
+        font-size: 3rem;
+        margin-bottom: 5rem;
+    }
 }
