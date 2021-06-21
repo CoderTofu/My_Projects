@@ -6,3 +6,102 @@
     font-size: 16px;
     font-weight: normal;
 }
+
+body {
+    background: linear-gradient(50deg, #db5353, #dba94a, #d12ddd); 
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.task-table {
+    display: block;
+    max-width: 60vw;
+    height: 400px;
+    background-color: aliceblue;
+    overflow-y: scroll;
+}
+
+.task-table::-webkit-scrollbar {
+    display: none;
+}
+
+.task-table th {
+    border-bottom: 1px solid #000;
+}
+
+.task-table td {
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+}
+
+.task-table td, .task-table th {
+    text-align: center;
+    width: 250px;
+    padding: 10px;
+}
+
+.task-table, .task-table td, .task-table th {
+    padding-top: none;
+    vertical-align: middle;
+    font-size: 1rem;
+    border-collapse: collapse;
+}
+
+.work button{
+    padding: 5px;
+    margin: 2px;
+    border: 1px solid #000;
+}
+
+.work button:hover, .submit-btn:hover{
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.delete-btn {
+    color: #fff;
+    background-color: #df3333;
+}
+
+.edit-btn {
+    background-color: #ffdd1e;
+}
+
+.submit-btn {
+    width: 100px !important;
+    padding: 5px;
+    background-color: #46e246;
+    border: 1px solid #000;
+}
+
+
+#form-input {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 500px;
+}
+
+#form-input input{
+    margin-left: 10px;
+    margin-top: 10px;
+    padding: 5px;
+    width: 200px;
+}
+
+.checkbox {
+    height: 25px;
+    width: 25px;
+}
+
