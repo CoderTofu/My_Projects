@@ -1,21 +1,26 @@
+    // Take all the variable in the documents that are needed.
     const input = document.getElementById("form-input");
 
     const table = document.querySelector(".task-table");
     let task = document.getElementById("task");
     let date = document.getElementById("date");
 
+    //Important for editing inputs later
     let editInput;
 
+    // This is the function responsible for when a user submits their task and time or date
     const submitFunc = () => {
         let db = localStorage.getItem("tasks-at-hand");
         let dbParsed = JSON.parse(db);
 
+        // Prepares the data
         let data = {
             "checked": false,
             "task": task.value,
             "date": date.value,
         }
 
+        // I first made it into an array so I could have had some sort of database
         if (dbParsed === null || dbParsed.length === 0) {
             let dataString = JSON.stringify([data]);
 
@@ -29,9 +34,11 @@
         task.value = ``;
         date.value = ``;
 
+        // Reloads the table with new updates on the localstorage
         updateTable();
     }
 
+    // This is the function responsible for how the table loads.
     const updateTable = () => {
         let db = localStorage.getItem("tasks-at-hand");
         let dbParsed = JSON.parse(db);
@@ -56,18 +63,21 @@
 
             table.appendChild(createRow);
 
+            // This part decides whether a checkbox is checked or not
             if (dbParsed[i]["checked"]) {
                 document.getElementById(`check${i}`).checked = true; 
-            } else if (!dbParsed[i]["checked"]) {
-                document.getElementById(`check${i}`).checked = false; 
             }
 
         }
     }
 
+    // function responsible for finding out if the user completed their tasks via checkbox
     const completed = (num) => {
         let db = localStorage.getItem("tasks-at-hand");
         let dbParsed = JSON.parse(db);
+
+        /*Whenever someone clicks the checkbox this function immediately changes their
+        checked value on db then updates the table once again */
 
         dbParsed[num]["checked"] === false ? (dbParsed[num]["checked"] = true) : (dbParsed[num]["checked"] = false);
 
@@ -77,6 +87,7 @@
         updateTable()
     }
     
+    // Deletes the task that the user pressed
     const deleteTask = (num) => {
         let db = localStorage.getItem("tasks-at-hand");
         let dbParsed = JSON.parse(db);
@@ -87,6 +98,7 @@
         updateTable()
     }
 
+    // Part 1 of editing the inputs of the user
     const editTask = (num) => {
         let db = localStorage.getItem("tasks-at-hand");
         let dbParsed = JSON.parse(db);
@@ -108,6 +120,7 @@
         submit.addEventListener("click", () => {
             editedData(num)
         })
+        
         window.addEventListener("keydown", (e) => {
             if (submit !== null && e.key === "Enter") {
                 editedData(num);
@@ -122,6 +135,7 @@
         submitFunc();
     })
 
+    // Part 2 of the editing of inputs
     function editedData(num) {
         let db = localStorage.getItem("tasks-at-hand");
         let dbParsed = JSON.parse(db);
