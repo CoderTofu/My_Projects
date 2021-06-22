@@ -23,7 +23,8 @@
 
 .banner {
     max-width: 80vw;
-    height: 350px;
+    padding: 20px;
+    height: 200px;
     display: flex;
     align-items: center;
     text-align: center;
