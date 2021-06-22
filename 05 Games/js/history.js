@@ -154,7 +154,7 @@ function clickHistory(pick) {
                 <th>Edit</th>
             `
             historyTitle.innerHTML = `
-                <h6>Snake</h6>
+                <h6>Tic-Tac-Toe</h6>
             `;
             tableOfContent.appendChild(createdRow);
             if (parseTicHistory === null || parseTicHistory.length === 0) {
