@@ -16,31 +16,31 @@ function seeHistory() {
 
     const historyMenu = document.createElement("div");
     historyMenu.classList.add("history-menu");
-    historyMenu.innerHTML = `
-    <div class="icons mole-historyIcon">
-        <img src="../../05 Games/images/nav-icons/mole.png" alt="">
-    </div>
-    <div class="icons snake-historyIcon">
-        <img src="../../05 Games/images/nav-icons/snake.png" alt="">
-    </div>
-    <div class="icons cross-historyIcon">
-        <img src="../../05 Games/images/nav-icons/cross.png" alt="">
-    </div>
-    `;
+    // historyMenu.innerHTML = `
+    // <div class="icons mole-historyIcon">
+    //     <img src="../../05_Games/images/nav-icons/mole.png" alt="">
+    // </div>
+    // <div class="icons snake-historyIcon">
+    //     <img src="../05_Games/images/nav-icons/snake.png" alt="">
+    // </div>
+    // <div class="icons cross-historyIcon">
+    //     <img src="../../05_Games/images/nav-icons/cross.png" alt="">
+    // </div>
+    // `;
 
     // Use this if you want to open it on its own folder
 
-    // historyMenu.innerHTML = `
-    // <div class="icons mole-historyIcon">
-    //     <img src="../images/nav-icons/mole.png" alt="">
-    // </div>
-    // <div class="icons snake-historyIcon">
-    //     <img src="../images/nav-icons/snake.png" alt="">
-    // </div>
-    // <div class="icons cross-historyIcon">
-    //     <img src="../images/nav-icons/cross.png" alt="">
-    // </div>
-    // `;
+    historyMenu.innerHTML = `
+    <div class="icons mole-historyIcon">
+        <img src="../05_Games/images/nav-icons/mole.png">
+    </div>
+    <div class="icons snake-historyIcon">
+        <img src="../05_Games/images/nav-icons/snake.png">
+    </div>
+    <div class="icons cross-historyIcon">
+        <img src="../05_Games/images/nav-icons/cross.png">
+    </div>
+    `;
     historyContent.appendChild(historyMenu);
 
     const histories = document.createElement("div");
