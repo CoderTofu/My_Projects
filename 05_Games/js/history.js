@@ -91,9 +91,7 @@ function clickHistory(pick) {
             tableOfContent.appendChild(createdRow);
             if (parseMoleHistory === null || parseMoleHistory.length === 0) {
                 tableOfContent.innerHTML = `
-                <tr>
-                    <div class="no-history">You have no saves.</div>
-                </tr>
+                <div class="no-history"><h2>You have no saves.</h2></div>
                 `
             } else if (parseMoleHistory !== null || parseMoleHistory.length > 0) {
                 for (let i = 0; i < parseMoleHistory.length; i++) {
@@ -124,9 +122,7 @@ function clickHistory(pick) {
             tableOfContent.appendChild(createdRow);
             if (parseSnakeHistory === null || parseSnakeHistory.length === 0) {
                 tableOfContent.innerHTML = `
-                <tr>
-                    <div class="no-history">You have no saves.</div>
-                </tr>
+                    <div class="no-history"><h2>You have no saves.</h2></div>
                 `
             } else if (parseSnakeHistory !== null || parseSnakeHistory.length > 0) {
                 for (let i = 0; i < parseSnakeHistory.length; i++) {
@@ -159,9 +155,7 @@ function clickHistory(pick) {
             tableOfContent.appendChild(createdRow);
             if (parseTicHistory === null || parseTicHistory.length === 0) {
                 tableOfContent.innerHTML = `
-                <tr>
-                    <div class="no-history">You have no saves.</div>
-                </tr>
+                    <div class="no-history"><h2>You have no saves.</h2></div>
                 `
             } else if (parseTicHistory !== null || parseTicHistory.length > 0) {
                 for (let i = 0; i < parseTicHistory.length; i++) {

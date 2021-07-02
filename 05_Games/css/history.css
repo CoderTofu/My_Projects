@@ -46,6 +46,11 @@
     overflow-y: scroll;
 }
 
+.history-content {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
 /* Menu */
 .history-banner {
     max-width: 80vw;
@@ -130,7 +135,8 @@
     margin-bottom: 7rem;
     color: var(--history-saveTxt-default);
     background-color: var(--history-saveBg-default);
-    min-width: fit-content;
+    min-width: max-content;
+    padding: 2px;
 }
 
 
@@ -157,7 +163,7 @@
 /* No history */
 .no-history {
     font-size: 2rem;
-    padding: 2rem;
+    width: max-content !important;
 }
 
 
