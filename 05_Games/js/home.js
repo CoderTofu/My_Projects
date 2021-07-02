@@ -4,6 +4,8 @@ function goHome() {
 
     clearInterval(counter);
     clearTimeout(starter);
+    clearTimeout(endTimes);
+    clearTimeout(checking);
 
     content.innerHTML = "";
     // Create elements
