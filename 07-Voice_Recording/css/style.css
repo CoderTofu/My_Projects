@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&family=Red+Hat+Text&family=Red+Rose&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+:root {
+    --content-font-family: 'Quicksand', sans-serif;
+    --banner-font-family: 'Red Hat Text', sans-serif;
+    --header-nav-font-family: 'Red Rose', cursive;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333552;
+}
+
+/* header nav */
+.header-nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100vw;
+    height: 90px;
+}
+
+.logo-home {
+    display: flex;
+    align-items: center;
+}
+
+.logo-image-container {
+    background-color: #782830;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+    margin-right: 10px;
+    transition: opacity ease-in-out 0.2s;
+}
+
+.logo-image-container:hover {
+    opacity: 0.8;
+}
+
+.logo-image {
+    height: 60px;
+    width: 60px;
+}
+
+
+/* design circles */
+.design-circle {
+    position: absolute;
+}
