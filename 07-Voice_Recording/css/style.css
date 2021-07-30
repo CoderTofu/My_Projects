@@ -27,74 +27,98 @@ body {
 }
 
 /* header nav */
-.header-nav {
-    display: flex;
-    justify-content: space-around;
-    width: 100vw;
-    height: 90px;
-}
 
-.logo-home {
-    display: flex;
-    align-items: center;
-}
+    /* Logo with name */
+        .header-nav {
+            display: flex;
+            justify-content: space-around;
+            width: 100vw;
+            height: 90px;
+        }
 
-.logo-image-container {
-    background-color: #782830;
-    border-radius: 50%;
-    height: 70px;
-    width: 70px;
-    margin-right: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 1px solid gray;
-    transition: ease-in-out 0.3s;
-}
+        .logo-home {
+            display: flex;
+            align-items: center;
+        }
 
-.logo-image-container:hover {
-    opacity: 0.5;
-}
+        .logo-image-container {
+            background-color: #782830;
+            border-radius: 50%;
+            height: 70px;
+            width: 70px;
+            margin-right: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid gray;
+            transition: ease-in-out 0.3s;
+        }
 
-.logo-image {
-    height: 50px;
-    width: 50px;
-}
+        .logo-image-container:hover {
+            opacity: 0.5;
+        }
 
-.logo-name {
-    font-family: var(--header-nav-font-family);
-    font-size: 1.8rem;
-    letter-spacing: 0.3em;
-    transition: all ease 1.5;
-}
+        .logo-image {
+            height: 50px;
+            width: 50px;
+        }
 
-.logo-name::after {
-    content: '';
-    width: 0px;
-    height: 2px;
-    display: block;
-    background-color: #fff;
-    transition: ease 0.3s;
-}
+        .logo-name {
+            font-family: var(--header-nav-font-family);
+            font-size: 2rem;
+            font-weight: lighter;
+            letter-spacing: 0.3em;
+            transition: all ease 1.5;
+        }
 
-.logo-name:hover::after {
-    width: 100%;
-}
+        .nav-transition::after {
+            content: '';
+            width: 0px;
+            height: 2px;
+            display: block;
+            background-color: #fff;
+            transition: ease 0.3s;
+        }
 
+        .nav-transition:hover::after {
+            width: 100%;
+        }
+    /* END */
+
+    /* Links in nav */
+
+        .nav-list-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            list-style: none;
+        }
+
+        .nav-list:first-child {
+            margin-right: 1rem;
+        }
+
+        .nav-link {
+            font-family: var(--header-nav-font-family);
+            cursor: pointer;
+            font-size: 1.5rem;
+            letter-spacing: 0.2em;
+        }
+    /* End */
 
 /* design circles */
 .top-right.design-circle {
     position: absolute;
+    z-index: -1;
     top: 0;
     right: 0;
-    height: 30vmax;
-    width: 30vmax;
+    height: 30vw;
+    width: 30vw;
     overflow: hidden;
 }
 
 .top-right-fill-design-circle {
     position: relative;
-    z-index: -1;
     height: 100%;
     width: 100%;
     border-radius: 50%;
@@ -112,4 +136,40 @@ body {
     background-position: center;
     background-size: contain;
     position: absolute;
+}
+
+.bottom-left.design-circle {
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    height: 30vw;
+    width: 30vw;
+    overflow: hidden;
+}
+
+.bottom-left-fill-design-circle {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    transform: translate(-20%, 30%);
+    overflow: hidden;
+}
+
+.bottom-left-fill-design-circle::before {
+    content: '';
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url(../img/bottom-left.jpeg);
+    background-position: center;
+    background-size: contain;
+    position: absolute;
+}
+
+/* Screen Issue */
+@media (max-width: 900px) {
+    
 }
