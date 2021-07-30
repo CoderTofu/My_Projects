@@ -32,8 +32,9 @@ body {
         .header-nav {
             display: flex;
             justify-content: space-around;
-            width: 100vw;
+            width: 80%;
             height: 90px;
+            border-bottom: 2px solid rgb(146, 146, 146);
         }
 
         .logo-home {
@@ -107,6 +108,11 @@ body {
     /* End */
 
 /* design circles */
+.design-circle {
+    min-height: 300px;
+    min-width: 300px;
+}
+
 .top-right.design-circle {
     position: absolute;
     z-index: -1;
@@ -145,6 +151,8 @@ body {
     left: 0;
     height: 30vw;
     width: 30vw;
+    max-height: 60vw;
+    max-width: 60vw;
     overflow: hidden;
 }
 
@@ -171,5 +179,39 @@ body {
 
 /* Screen Issue */
 @media (max-width: 900px) {
-    
+    .logo-home {
+        display: none;
+    }
+
+    .nav-list-links {
+        width: 100%;
+        padding: 0;
+        justify-content: space-around;
+    }
+
+    .nav-list:first-child {
+        margin: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-list-links {
+        justify-content: center;
+    }
+
+    .nav-list:first-child {
+        margin-right: 1rem;
+    }
+
+    .nav-link {
+        font-size: 1.3rem;
+    }
+
+    .top-right.design-circle {
+        display: none;
+    }
+
+    .bottom-left-fill-design-circle {
+        transform: translate(-30%, 30%);
+    }
 }
