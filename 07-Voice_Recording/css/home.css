@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Red+Rose:wght@300&display=swap');
+.home-page-main {
+    margin: 3rem 0;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+:root {
+    --banner-font-family: 'Red Rose', cursive;
+}
+
+/* Main Banner */
+    .company-home-banner {
+        background: rgba(0, 0, 0, 0.5);
+        border: 3px solid #FFFFFF;
+        border-radius: 45px;
+        height: 300px;
+        width: 80vw;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .company-banner-logo::before {
+        content: '';
+        z-index: -10;
+        height: 600px;
+        width: 600px;
+        background-color: rgba(215, 55, 55, 0.8);
+        transform: translate(-55%, -30%);
+        border-radius: 50%;
+        position: absolute;
+    }
+
+    .company-banner-logo {
+        position: absolute;
+        left: 2rem;
+    }
+
+    .company-banner-logo img {
+        height: 250px;
+        width: auto;
+    }
+
+    .company-banner-text {
+        font-size: 5rem;
+        margin-left: 4rem;
+        font-family: 'Red Rose', cursive;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 0.3em;
+    }
+/* End */
+
+/* Slogan */
+.company-home-slogan {
+    background: #131528;
+    margin-top: 1rem;
+    border-radius: 30px;
+    height: 250px;
+    width: 50vw;
+    padding: 1rem 2rem;
+    position: relative;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.company-slogan-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.company-slogan-main {
+    font-size: 2rem;
+    text-align: center;
+}
