@@ -1,3 +1,12 @@
+const PRE_RECORDED_AUDIO_SRC = './welcome-record.m4a';
+
+const playAudioElement = document.getElementById('playAudio');
+
+playAudioElement.addEventListener('click', () => {
+
+})
+
+
 // navigator.mediaDevices.getUserMedia({audio: true})
 //     .then(stream => {
 //         const mediaRecorder = new MediaRecorder(stream);

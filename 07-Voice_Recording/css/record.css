@@ -2,21 +2,28 @@
     font-family: var(--reminder-font);
 }
 
+:root {
+     --size-ofset: 100px;
+     --transition-all: all 200ms ease-in-out;
+}
+
 .hide-feature {
-    display: none;
+    display: none !important;
 }
 
 .audio-main {
     margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Audio main Container */
 
     .audio-main-container {
-        width: 80vw;
+        width: 90vw;
         background: rgba(235, 235, 235, 0.8);
         border: 3px solid #797979;
-        box-sizing: border-box;
         border-radius: 30px;
     }
 
@@ -35,17 +42,50 @@
     }
 
     .control {
-        height: 150px;
-        width: 150px;
+        height: var(--size-ofset);
+        width: var(--size-ofset);
         border-radius: 50%;
-        border: 5px solid #000;
+        border: calc(var(--size-ofset) * 0.05) solid #000;
         background: #BE383D;
         display: flex;
         justify-content: center;
         align-items: center;
+        cursor: pointer;
+        transition: var(--transition-all);
+        margin-right: calc(var(--size-ofset) * 0.2);
     }
 
-    .no-border {
-        border: none;
+    .control:last-child {
+        margin-right: 0;
+    }
+
+    .control:hover {
+        transform: scale(1.2);
+    }
+
+    .control .img-control {
+        height: calc(var(--size-ofset) / 1.8);
+        width: calc(var(--size-ofset) / 1.8);
+    }
+    
+    .control .stop-record-symbol {
+        height: calc(var(--size-ofset) / 2);
+        width: calc(var(--size-ofset) / 2);
+        background-color: #000;
     }
 /* End */
+
+/* Screen Issues */
+
+@media (max-width: 1000px) {
+
+    .audio-main-container {
+        width: 100vw;
+        border: none;
+        border-radius: 0;
+    }
+
+    .control {
+        --size-ofset: 80px;
+    }
+}
