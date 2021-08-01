@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/record.css">
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script src="./js/main.js" defer></script>
     <title>Recording</title>
 </head>
 <body>
@@ -26,7 +28,49 @@
         </ul>
     </nav>
 
-    <audio id="" src="./welcome-record.m4a" type="audio/m4a"></audio>
+    <main class="audio-main">
+
+        <div class="audio-main-container">
+            <div id="audio-wave-form"></div>
+            <div class="hide" id="audio-bar-form"></div>
+            <audio id="pre-recorded-audio" src="./welcome-record.m4a" type="audio/m4a"></audio>
+        </div>
+
+        <div class="audio-main-controls">
+            <div class="control" id="downloadRecord">
+                <img src="./img/controls/download-record.png" alt="download recording">
+            </div>
+
+            <div class="control" id="stopRecording">
+                <div class="stop-record-symbol"></div>
+            </div>
+ 
+            <div class="control" id="stopAudio">
+                <div class="stop-record-symbol"></div>
+            </div>
+
+            <div class="control no-border" id="playAudio">
+                <img src="./img/controls/play_button.svg" alt="play recording">
+            </div>
+
+            <div class="control" id="startRecording">
+                <img src="./img/controls/record-button.png" alt="start recording">
+            </div>
+
+            <div class="control" id="pauseRecording">
+                <img src="./img/controls/pause_button.svg" alt="pause recording">
+            </div>
+
+            <div class="control" id="pauseAudio">
+                <img src="./img/controls/pause_button.svg" alt="pause playing">
+            </div>
+
+            <div class="control" id="restartAudio">
+                <img src="./img/controls/refresh_button.svg" alt="restart audio">
+            </div>
+        </div>
+    </main>
+    
 
     <!-- DESIGN CIRCLES -->
     <div class="top-right design-circle">
@@ -37,5 +81,4 @@
     </div>
 
 </body>
-
 </html>
