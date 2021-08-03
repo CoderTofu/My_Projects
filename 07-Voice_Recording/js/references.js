@@ -1,107 +1,69 @@
-// Global variable to track current file name.
-var currentFile = "";
-function playAudio() {
-    // Check for audio element support.
-    if (window.HTMLAudioElement) {
-        try {
-            var oAudio = document.getElementById('myaudio');
-            var btn = document.getElementById('play');
-            var audioURL = document.getElementById('audiofile');
+const startRecording = document.getElementById('startRecording');
+const stopRecording = document.getElementById('stopRecording');
+const playRecording = document.getElementById('playRecording');
+const pauseRecording = document.getElementById('pauseRecording');
+const downloadRecording = document.getElementById('downloadRecording')
 
-            //Skip loading if current file hasn't changed.
-            if (audioURL.value !== currentFile) {
-                oAudio.src = audioURL.value;
-                currentFile = audioURL.value;
-            }
+let mediaRecorder;
+let audio;
 
-            // Tests the paused attribute and set state.
-            if (oAudio.paused) {
-                oAudio.play();
-                btn.textContent = "Pause";
-            }
-            else {
-                oAudio.pause();
-                btn.textContent = "Play";
-            }
-        }
-        catch (e) {
-            // Fail silently but show in F12 developer tools console
-            if (window.console && console.error("Error:" + e));
-        }
+const audioContext = new AudioContext();
+let track;
+
+startRecording.addEventListener('click', startRecordingFunc);
+
+stopRecording.addEventListener('click', () => {
+    mediaRecorder.stop();
+})
+
+playRecording.addEventListener('click', () => {
+    if (audioContext.state === 'suspended') {
+        audioContext.resume();
+    } else {
+        audio.play()
     }
-}
-// Rewinds the audio file by 30 seconds.
+})
 
-function rewindAudio() {
-    // Check for audio element support.
-    if (window.HTMLAudioElement) {
-        try {
-            var oAudio = document.getElementById('myaudio');
-            oAudio.currentTime -= 30.0;
-        }
-        catch (e) {
-            // Fail silently but show in F12 developer tools console
-            if (window.console && console.error("Error:" + e));
-        }
-    }
-}
+pauseRecording.addEventListener('click', () => {
+    audio.pause()
+})
 
-// Fast forwards the audio file by 30 seconds.
-
-function forwardAudio() {
-
-    // Check for audio element support.
-    if (window.HTMLAudioElement) {
-        try {
-            var oAudio = document.getElementById('myaudio');
-            oAudio.currentTime += 30.0;
-        }
-        catch (e) {
-            // Fail silently but show in F12 developer tools console
-            if (window.console && console.error("Error:" + e));
-        }
-    }
-}
-
-// Restart the audio file to the beginning.
-
-function restartAudio() {
-    // Check for audio element support.
-    if (window.HTMLAudioElement) {
-        try {
-            var oAudio = document.getElementById('myaudio');
-            oAudio.currentTime = 0;
-        }
-        catch (e) {
-            // Fail silently but show in F12 developer tools console
-            if (window.console && console.error("Error:" + e));
-        }
-    }
-}
+downloadRecording.addEventListener('click', () => {
+    //downloadRecordingFunc(audio.src, 'your-recording');
+    console.log(mediaRecorder)
+})
 
 
-navigator.mediaDevices.getUserMedia({audio: true})
-    .then(stream => {
-        const mediaRecorder = new MediaRecorder(stream);
-        mediaRecorder.start();
+function startRecordingFunc() {
+    navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(stream => {
+            mediaRecorder = new MediaRecorder(stream);
+            mediaRecorder.start();
 
-        const audioChunks = [];
+            const audioChunks = [];
 
-        mediaRecorder.addEventListener('dataavailable', e => {
-            audioChunks.push(e.data)
-        });
+            mediaRecorder.addEventListener('dataavailable', e => {
+                audioChunks.push(e.data)
+            });
 
-        mediaRecorder.addEventListener('stop', () => {
-            const audioBlob = new Blob(audioChunks);
-            const audioUrl = URL.createObjectURL(audioBlob);
-            const audio = new Audio(audioUrl);
-            audio.play()
+            mediaRecorder.addEventListener('stop', () => {
+                const audioBlob = new Blob(audioChunks);
+                const audioUrl = URL.createObjectURL(audioBlob);
+                audio = new Audio(audioUrl);
+                track = audioContext.createMediaElementSource(audio);
+                track.connect(audioContext.destination)
+                audio.play()
+            })
         })
+}
 
-        setTimeout(() => {
-            mediaRecorder.stop();
-        }, 3000)
-    })
+function downloadRecordingFunc(fileUrl, fileName) {
+    var a = document.createElement("a");
+    a.href = fileUrl;
+    a.setAttribute("download", fileName);
+    a.click();
+}
+
 
 /*
 

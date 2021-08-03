@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/record.css">
-    <script src="./js/main.js" defer type="module"></script>
+    <script src="./js/audio_player.js" defer></script>
+    <script src="./js/recorder.js" defer></script>
     <title>Recording</title>
 </head>
 <body>
@@ -32,11 +33,11 @@
         <div class="audio-main-container">
             <div id="audio-wave-form"></div>
             <div class="hide" id="audio-bar-form"></div>
-            <audio id="recorded-audio" src="./recording.mp3" type="audio/m4a"></audio>
+            <audio id="first-audio" src="./recording.mp3" type="audio/m4a"></audio>
         </div>
 
         <div class="audio-main-controls">
-            <div class="control" id="downloadRecord">
+            <div class="control important" id="downloadRecord">
                 <img class="img-control" src="./img/controls/download-record.png" alt="download recording">
             </div>
 
