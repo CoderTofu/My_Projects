@@ -14,11 +14,6 @@ let track;
 let audio = document.getElementById('first-audio')
 track = audioContext.createMediaElementSource(audio);
 track.connect(audioContext.destination);
-audio.addEventListener('ended', () => {
-    hideAllControl();
-    restartAudioElement.classList.remove('hide-feature');
-    startRecordingElement.classList.remove('hide-feature');
-})
 
 // Reset Controls
 function hideAllControl() {
@@ -28,30 +23,40 @@ function hideAllControl() {
     })
 }
 
-
+// Audio visuals
+let wavesurfer = WaveSurfer.create({
+    container: '#audio-wave-form',
+    waveColor: 'orange',
+    progressColor: 'purple'
+});
+wavesurfer.load(audio);
+wavesurfer.on('finish', () => {
+    hideAllControl();
+    restartAudioElement.classList.remove('hide-feature');
+    startRecordingElement.classList.remove('hide-feature');
+})
 
 // Audio player Functions
-playAudioElement.addEventListener('click', playAudioFunc)
+playAudioElement.addEventListener('click', playAudioFunc);
 
-pauseAudioElement.addEventListener('click', pauseAudioFunc)
+pauseAudioElement.addEventListener('click', pauseAudioFunc);
 
-stopAudioElement.addEventListener('click', stopAudioFunc)
+stopAudioElement.addEventListener('click', stopAudioFunc);
 
-restartAudioElement.addEventListener('click', playAudioFunc)
+restartAudioElement.addEventListener('click', () => {
+    wavesurfer.seekTo(0);
+    playAudioFunc()
+});
 
 function playAudioFunc() {
-    if (audioContext.state === 'suspended') {
-        audioContext.resume();
-    } else {
-        audio.play()
-    }
+    wavesurfer.play()
     hideAllControl()
     pauseAudioElement.classList.remove('hide-feature');
     stopAudioElement.classList.remove('hide-feature')
 }
 
 function pauseAudioFunc() {
-    audio.pause();
+    wavesurfer.pause();
     hideAllControl();
     startRecordingElement.classList.remove('hide-feature');
     stopAudioElement.classList.remove('hide-feature');
@@ -59,36 +64,9 @@ function pauseAudioFunc() {
 }
 
 function stopAudioFunc() {
-    audio.pause();
-    audio.currentTime = 0;
+    wavesurfer.stop();
     hideAllControl();
     playAudioElement.classList.remove('hide-feature');
     startRecordingElement.classList.remove('hide-feature');
 }
 
-// Audio Visuals
-const audioWaveForm = document.getElementById('audio-wave-form');
-let ctx = audioWaveForm.getContext('2d');
-let analyser = audioContext.createAnalyser();
-analyser.fftSize = 2048;
-track.connect(analyser);
-track.connect(audioContext.destination);
-let data = new Uint8Array(analyser.frequencyBinCount);
-
-function audioWaveVisuals() {
-    analyser.getByteFrequencyData(data);
-    draw(data)
-    requestAnimationFrame(audioWaveVisuals);
-}
-requestAnimationFrame(audioWaveVisuals)
-
-function draw(data) {
-    data = [...data];
-    ctx.clearRect(0, 0, audioWaveForm.width, audioWaveForm.height);
-    let space = audioWaveForm.width / data.length; data.forEach((value, i) => {
-        ctx.beginPath();
-        ctx.moveTo(space * i, audioWaveForm.height); //x,y
-        ctx.lineTo(space * i, audioWaveForm.height - value); //x,y
-        ctx.stroke();
-    })
-}
