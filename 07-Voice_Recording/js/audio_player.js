@@ -6,14 +6,8 @@ const restartAudioElement = document.getElementById('restartAudio');
 // All Controls
 const controlElement = document.querySelectorAll('.control');
 
-// For audio player
-const audioContext = new AudioContext();
-let track;
-
 // Pre recorded audio is default state
 let audio = document.getElementById('first-audio')
-track = audioContext.createMediaElementSource(audio);
-track.connect(audioContext.destination);
 
 // Reset Controls
 function hideAllControl() {

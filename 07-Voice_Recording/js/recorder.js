@@ -3,20 +3,39 @@ const ALL_CONTROLS = document.querySelectorAll('.control');
 
 // Recorder
 const startRecordingElement = document.getElementById('startRecording');
+const playRecordingElement = document.getElementById('playRecording');
 const pauseRecordingElement = document.getElementById('pauseRecording');
 const stopRecordElement = document.getElementById('stopRecording');
 const downloadRecordElement = document.getElementById('downloadRecord');
 
 // To record
 let mediaRecorder;
+let audioUrl;
 
 startRecordingElement.addEventListener('click', startRecordingFunc)
+downloadRecordElement.addEventListener('click', () => {
+    downloadRecordingFunc(audio.src, 'your-recording');
+})
 
 stopRecordElement.addEventListener('click', () => {
     mediaRecorder.stop();
-    wavesurfer.seekTo(0);
-    wavesurfer.play()
-    playAudioFunc()
+    setTimeout(() => {
+        playAudioFunc()
+    }, 100)
+})
+
+pauseRecordingElement.addEventListener('click', () => {
+    mediaRecorder.pause();
+    hideAllControl();
+    stopRecordElement.classList.remove('hide-feature');
+    playRecordingElement.classList.remove('hide-feature');
+})
+
+playRecordingElement.addEventListener('click', () => {
+    mediaRecorder.resume();
+    hideAllControl();
+    pauseRecordingElement.classList.remove('hide-feature');
+    stopRecordElement.classList.remove('hide-feature');
 })
 
 function startRecordingFunc() {
@@ -31,13 +50,11 @@ function startRecordingFunc() {
                 audioChunks.push(e.data)
             });
 
-            mediaRecorder.addEventListener('stop', () => {
+            mediaRecorder.addEventListener('stop', async() => {
                 const audioBlob = new Blob(audioChunks);
                 const audioUrl = URL.createObjectURL(audioBlob);
                 audio = new Audio(audioUrl);
-                track = audioContext.createMediaElementSource(audio);
-                track.connect(audioContext.destination);
-                wavesurfer.load(audioUrl)
+                await wavesurfer.load(audioUrl);
             })
         })
     hideAllControl()
@@ -45,3 +62,9 @@ function startRecordingFunc() {
     stopRecordElement.classList.remove('hide-feature');
 }
 
+function downloadRecordingFunc(fileUrl, fileName) {
+    var a = document.createElement("a");
+    a.href = fileUrl;
+    a.setAttribute("download", fileName);
+    a.click();
+}
