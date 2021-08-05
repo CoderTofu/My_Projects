@@ -9,6 +9,7 @@
     <script src="https://unpkg.com/wavesurfer.js"></script>
     <script src="./js/audio_player.js" defer></script>
     <script src="./js/recorder.js" defer></script>
+    <script src="./js/visualize_bar.js" defer type="module"></script>
     <title>Recording</title>
 </head>
 <body>
@@ -32,10 +33,8 @@
     <main class="audio-main">
 
         <div class="audio-main-container">
-            <div class="audio-visual" id="audio-wave-form" style="width: 100%;
-        height: 150px;"></div>
-            <div class="hide-feature audio-visual" id="audio-bar-form" style="width: 100%;
-        height: 150px;"></div>
+            <div class="audio-visual" id="audio-wave-form"></div>
+            <div class="hide-feature audio-visual" id="audio-bar-form"></div>
             <audio id="first-audio" src="./recording.mp3" type="audio/m4a"></audio>
         </div>
 

@@ -1,3 +1,4 @@
+
 // ALL CONTROLS
 const ALL_CONTROLS = document.querySelectorAll('.control');
 
@@ -8,10 +9,13 @@ const pauseRecordingElement = document.getElementById('pauseRecording');
 const stopRecordElement = document.getElementById('stopRecording');
 const downloadRecordElement = document.getElementById('downloadRecord');
 
+const audioWaveForm = document.getElementById('audio-wave-form');
+const audioBarForm = document.getElementById('audio-bar-form');
+
 // To record
 let mediaRecorder;
-let audioUrl;
 
+window.addEventListener('resize', resize)
 startRecordingElement.addEventListener('click', startRecordingFunc)
 downloadRecordElement.addEventListener('click', () => {
     downloadRecordingFunc(audio.src, 'your-recording');
@@ -19,6 +23,8 @@ downloadRecordElement.addEventListener('click', () => {
 
 stopRecordElement.addEventListener('click', () => {
     mediaRecorder.stop();
+    audioWaveForm.classList.remove('hide-feature');
+    audioBarForm.classList.add('hide-feature');
     setTimeout(() => {
         playAudioFunc()
     }, 100)
@@ -38,8 +44,19 @@ playRecordingElement.addEventListener('click', () => {
     stopRecordElement.classList.remove('hide-feature');
 })
 
+function getRecording() {
+    return navigator.mediaDevices.getUserMedia({
+        audio: {
+            echoCancellation: false,
+            autoGainControl: false,
+            noiseSuppression: false,
+            latency: 0
+        }
+    })
+}
+
 function startRecordingFunc() {
-    navigator.mediaDevices.getUserMedia({ audio: true })
+    getRecording()
         .then(stream => {
             mediaRecorder = new MediaRecorder(stream);
             mediaRecorder.start();
@@ -57,7 +74,9 @@ function startRecordingFunc() {
                 await wavesurfer.load(audioUrl);
             })
         })
-    hideAllControl()
+    audioWaveForm.classList.add('hide-feature');
+    audioBarForm.classList.remove('hide-feature');
+    hideAllControl();
     pauseRecordingElement.classList.remove('hide-feature');
     stopRecordElement.classList.remove('hide-feature');
 }
@@ -67,4 +86,11 @@ function downloadRecordingFunc(fileUrl, fileName) {
     a.href = fileUrl;
     a.setAttribute("download", fileName);
     a.click();
+}
+
+function resize() {
+    audioBarForm.width =audioBarForm.clientWidth * window.devicePixelRatio;
+    audioBarForm.height =audioBarForm.clientHeight * window.devicePixelRatio;
+    audioWaveForm.width = audioWaveForm.clientWidth * window.devicePixelRatio;
+    audioWaveForm.height = audioWaveForm.clientHeight * window.devicePixelRatio;
 }
