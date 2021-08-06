@@ -42,23 +42,29 @@ restartAudioElement.addEventListener('click', () => {
     playAudioFunc()
 });
 
+// Certain button func (play audio recording or resume)
 function playAudioFunc() {
     wavesurfer.play()
+    // Change to appropriate controls
     hideAllControl()
     pauseAudioElement.classList.remove('hide-feature');
     stopAudioElement.classList.remove('hide-feature')
 }
 
+// Certain button func (pause audio recording)
 function pauseAudioFunc() {
     wavesurfer.pause();
+    // Change to appropriate controls
     hideAllControl();
     startRecordingElement.classList.remove('hide-feature');
     stopAudioElement.classList.remove('hide-feature');
     playAudioElement.classList.remove('hide-feature');
 }
 
+// Certain button func (stop audio recording)
 function stopAudioFunc() {
     wavesurfer.stop();
+    // Change to appropriate controls
     hideAllControl();
     playAudioElement.classList.remove('hide-feature');
     startRecordingElement.classList.remove('hide-feature');

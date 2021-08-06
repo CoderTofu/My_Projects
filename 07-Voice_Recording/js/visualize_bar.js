@@ -1,11 +1,13 @@
 // load module from Skypack CDN
 import AudioMotionAnalyzer from 'https://cdn.skypack.dev/audiomotion-analyzer?min';
 
+const visualizerContainer = document.getElementById('audio-bar-form');
+
 const audioMotion = new AudioMotionAnalyzer(
-    document.getElementById('audio-bar-form'),
+    visualizerContainer,
     {
         gradient: 'rainbow',
-        height: document.getElementById('audio-bar-form').height - 40,
+        height: visualizerContainer.height - 40,
         showScaleY: true
     }
 );
@@ -22,11 +24,9 @@ function getVisuals() {
     })
 }
 
-// disconnect
-//audioMotion.disconnectInput();
+// To stop or disconnect the visualization
 const stopRecordElement = document.getElementById('stopRecording');
 const pauseRecordingElement = document.getElementById('pauseRecording');
-
 stopRecordElement.addEventListener('click', () => {
     audioMotion.disconnectInput();
 })
@@ -34,7 +34,7 @@ pauseRecordingElement.addEventListener('click', () => {
     audioMotion.disconnectInput();
 })
 
-// reconnect
+// Reconnect the visualizer
 const startRecordingElement = document.getElementById('startRecording');
 const playRecordingElement = document.getElementById('playRecording');
 playRecordingElement.addEventListener('click', getVisuals);
